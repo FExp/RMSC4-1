@@ -16,7 +16,7 @@ KP_YAW  = 3
 
 class LookAndMoveStatus:
     IDLE        = 0
-    MOVING      = 0
+    MOVING      = 1
 
 class LookAndMoveNode(object):
     cmd_vel = Twist()

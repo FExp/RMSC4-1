@@ -33,14 +33,14 @@ class GainBuffState:
 
 SearchBuffGoal = [
     {'id':1, 'x':4.0, 'y':2.9, 'yaw':0},
-    {'id':1, 'x':4.6, 'y':2.9, 'yaw':0},
-    {'id':2, 'x':4.3, 'y':2.9, 'yaw':0},
-    {'id':3, 'x':4.3, 'y':2.6, 'yaw':0},
-    {'id':4, 'x':4.3, 'y':3.2, 'yaw':0}
+    {'id':2, 'x':4.6, 'y':2.9, 'yaw':0},
+    {'id':3, 'x':4.3, 'y':2.9, 'yaw':0},
+    {'id':4, 'x':4.3, 'y':2.6, 'yaw':0},
+    {'id':5, 'x':4.3, 'y':3.2, 'yaw':0}
 ]
 
 BuffPath = [
-    {'id':1, 'x':0.92, 'y':4.5, 'yaw':2.0},
+    {'id':1, 'x':0.92, 'y':4.5, 'yaw':2.3},
     {'id':2, 'x':4.3, 'y':2.9, 'yaw':0.00}
 ]
 
@@ -134,7 +134,7 @@ class AggressiveGainBuffNode(object):
                 else:
                     self._as.set_aborted()
                     print 'No valied route'
-                    return
+                    return           
             elif self.gain_buff_state == GainBuffState.SEARCH:
                 if (rospy.get_time() - self.search_start_time) < SEARCH_BUFF_WAIT_TIME:
                     self.SearchBuff()

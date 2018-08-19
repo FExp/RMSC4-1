@@ -19,6 +19,9 @@ from actionlib_msgs.msg import GoalStatus
 
 from gripper import GripperController
 
+#ID
+IAM = "RED"
+
 # debug mode
 SERVO_ONLY = False
 VISUAL_ONLY = False
@@ -55,7 +58,71 @@ class AmmoType:
     ENEMY_GROUND         = 2
     ENEMY_ELEVATED       = 3
 
-AmmoBoxes = [
+AmmoBoxes_RED = [
+    # ground ----------------------------------
+    {'id':2,  'checkpoint':[(1.85,4.90,0.00)],'conflict':[],'type':AmmoType.DOMESTIC_GROUND},
+    {'id':3,  'checkpoint':[(2.65,4.20,-1.57)],'conflict':[],'type':AmmoType.DOMESTIC_GROUND},
+    {'id':4,  'checkpoint':[(1.68,3.37,-0.3)],'conflict':[],'type':AmmoType.DOMESTIC_GROUND},
+    {'id':5,  'checkpoint':[(1.90,3.22,0.00)],'conflict':[],'type':AmmoType.DOMESTIC_GROUND},
+    # elevated ----------------------------------
+    {'id':7,  'checkpoint':[(1.80,3.50,-1.57)],'conflict':[0,1],'type':AmmoType.DOMESTIC_ELEVATED},
+    {'id':9,  'checkpoint':[(0.85,1.85,-1.57)],'conflict':[0,0],'type':AmmoType.DOMESTIC_ELEVATED},
+    {'id':10, 'checkpoint':[(1.55,2.90,3.14)],'conflict':[0,4],'type':AmmoType.DOMESTIC_ELEVATED},
+    {'id':11, 'checkpoint':[(1.55,2.55,3.14)],'conflict':[4,5],'type':AmmoType.DOMESTIC_ELEVATED},
+    {'id':12, 'checkpoint':[(1.55,1.80,3.14)],'conflict':[0,5],'type':AmmoType.DOMESTIC_ELEVATED},
+    {'id':13, 'checkpoint':[(2.65,1.85,3.14)],'conflict':[0,5],'type':AmmoType.DOMESTIC_ELEVATED},
+    {'id':14, 'checkpoint':[(2.65,1.2,3.14)],'conflict':[0,6],'type':AmmoType.DOMESTIC_ELEVATED},
+    {'id':15, 'checkpoint':[(2.65,0.80,3.14)],'conflict':[0,0],'type':AmmoType.DOMESTIC_ELEVATED},
+    {'id':16, 'checkpoint':[(4.20,0.65,0)],'conflict':[0,0],'type':AmmoType.DOMESTIC_ELEVATED},
+    {'id':17, 'checkpoint':[(4.20,1.30,0)],'conflict':[0,6],'type':AmmoType.DOMESTIC_ELEVATED},
+    {'id':18, 'checkpoint':[(4.20,1.85,0)],'conflict':[0,5],'type':AmmoType.DOMESTIC_ELEVATED},
+    {'id':19, 'checkpoint':[(2.85,1.80,0.00)],'conflict':[0,5],'type':AmmoType.DOMESTIC_ELEVATED},
+    {'id':20, 'checkpoint':[(2.85,2.55,0.00)],'conflict':[4,5],'type':AmmoType.DOMESTIC_ELEVATED},
+    {'id':21, 'checkpoint':[(2.85,2.90,0.00)],'conflict':[0,4],'type':AmmoType.DOMESTIC_ELEVATED},
+    {'id':22,  'checkpoint':[(1.70,4.45,1.57)],'conflict':[0,1],'type':AmmoType.DOMESTIC_ELEVATED},
+    {'id':23, 'checkpoint':[(4.2,3.60,3.14)],'conflict':[4,5],'type':AmmoType.DOMESTIC_ELEVATED},
+    {'id':24, 'checkpoint':[(4.2,4.19,3.14)],'conflict':[0,4],'type':AmmoType.DOMESTIC_ELEVATED},
+    {'id':25,  'checkpoint':[(4.2,4.45,3.14)],'conflict':[0,1],'type':AmmoType.DOMESTIC_ELEVATED},
+    {'id':26,  'checkpoint':[(0.80,3.22,0.00)],'conflict':[0,1],'type':AmmoType.DOMESTIC_GROUND},
+    # enemy ground ----------------------------------
+    # {'id':17, 'checkpoint':[(MAP_LENGTH-1.20,MAP_WIDTH-4.30,-1.57+3.14)],'conflict':[],'type':AmmoType.ENEMY_GROUND},
+    # {'id':18, 'checkpoint':[(MAP_LENGTH-2.70,MAP_WIDTH-4.20,-1.57+3.14)],'conflict':[],'type':AmmoType.ENEMY_GROUND},
+    # {'id':19, 'checkpoint':[(MAP_LENGTH-0.50,MAP_WIDTH-4.65,1.57-3.14)],'conflict':[],'type':AmmoType.ENEMY_GROUND},
+    # {'id':20, 'checkpoint':[(MAP_LENGTH-1.05,MAP_WIDTH-4.30,1.57-3.14)],'conflict':[],'type':AmmoType.ENEMY_GROUND},
+    # # enemy elevated ----------------------------------
+    # {'id':22, 'checkpoint':[(MAP_LENGTH-2.00,MAP_WIDTH-3.60,-1.57+3.14)],'conflict':[0,1],'type':AmmoType.ENEMY_ELEVATED},
+    # {'id':24, 'checkpoint':[(MAP_LENGTH-0.88,MAP_WIDTH-3.26,1.57+3.14)],'conflict':[0,0],'type':AmmoType.ENEMY_ELEVATED},
+    # {'id':25, 'checkpoint':[(MAP_LENGTH-2.80,MAP_WIDTH-2.90,0.00+3.14)],'conflict':[0,4],'type':AmmoType.ENEMY_ELEVATED},
+    # {'id':26, 'checkpoint':[(MAP_LENGTH-1.50,MAP_WIDTH-2.50,0.00)],'conflict':[4,5],'type':AmmoType.ENEMY_ELEVATED},
+    # {'id':27, 'checkpoint':[(MAP_LENGTH-1.50,MAP_WIDTH-2.00,0.00)],'conflict':[0,5],'type':AmmoType.ENEMY_ELEVATED},
+    # {'id':28, 'checkpoint':[(MAP_LENGTH-4.20,MAP_WIDTH-1.75,0+3.14)],'conflict':[0,5],'type':AmmoType.ENEMY_ELEVATED},
+    # {'id':29, 'checkpoint':[(MAP_LENGTH-4.20,MAP_WIDTH-1.20,0+3.14)],'conflict':[0,6],'type':AmmoType.ENEMY_ELEVATED},
+    # {'id':30, 'checkpoint':[(MAP_LENGTH-4.20,MAP_WIDTH-0.50,0+3.14)],'conflict':[0,0],'type':AmmoType.ENEMY_ELEVATED}
+
+        # ground ----------------------------------
+    # {'id':32,  'checkpoint':[(MAP_LENGTH-1.20,MAP_WIDTH-4.30,1.57)],'conflict':[],'type':AmmoType.DOMESTIC_GROUND},
+    # {'id':33,  'checkpoint':[(MAP_LENGTH-2.70,MAP_WIDTH-4.20,1.57)],'conflict':[],'type':AmmoType.DOMESTIC_GROUND},
+    # {'id':34,  'checkpoint':[(MAP_LENGTH-0.50,MAP_WIDTH-4.65,-1.57)],'conflict':[],'type':AmmoType.DOMESTIC_GROUND},
+    # {'id':35,  'checkpoint':[(MAP_LENGTH-1.05,MAP_WIDTH-4.30,-1.57)],'conflict':[],'type':AmmoType.DOMESTIC_GROUND},
+    # # elevated ----------------------------------
+    # {'id':37,  'checkpoint':[(MAP_LENGTH-1.80,MAP_WIDTH-3.50,1.57)],'conflict':[0,1],'type':AmmoType.DOMESTIC_ELEVATED},
+    # {'id':39,  'checkpoint':[(MAP_LENGTH-0.85,MAP_WIDTH-1.85,1.57)],'conflict':[0,0],'type':AmmoType.DOMESTIC_ELEVATED},
+    # {'id':40, 'checkpoint':[(MAP_LENGTH-1.55,MAP_WIDTH-2.90,0)],'conflict':[0,4],'type':AmmoType.DOMESTIC_ELEVATED},
+    # {'id':41, 'checkpoint':[(MAP_LENGTH-1.55,MAP_WIDTH-2.55,0)],'conflict':[4,5],'type':AmmoType.DOMESTIC_ELEVATED},
+    # {'id':42, 'checkpoint':[(MAP_LENGTH-1.55,MAP_WIDTH-1.80,0)],'conflict':[0,5],'type':AmmoType.DOMESTIC_ELEVATED},
+    # {'id':43, 'checkpoint':[(MAP_LENGTH-2.65,MAP_WIDTH-1.85,0)],'conflict':[0,5],'type':AmmoType.DOMESTIC_ELEVATED},
+    # {'id':44, 'checkpoint':[(MAP_LENGTH-2.65,MAP_WIDTH-1.2,0)],'conflict':[0,6],'type':AmmoType.DOMESTIC_ELEVATED},
+    # {'id':45, 'checkpoint':[(MAP_LENGTH-2.65,MAP_WIDTH-0.80,0)],'conflict':[0,0],'type':AmmoType.DOMESTIC_ELEVATED},
+    # {'id':46, 'checkpoint':[(MAP_LENGTH-4.20,MAP_WIDTH-0.65,3.14)],'conflict':[0,0],'type':AmmoType.DOMESTIC_ELEVATED},
+    # {'id':47, 'checkpoint':[(MAP_LENGTH-4.20,MAP_WIDTH-1.30,3.14)],'conflict':[0,6],'type':AmmoType.DOMESTIC_ELEVATED},
+    # {'id':48, 'checkpoint':[(MAP_LENGTH-4.20,MAP_WIDTH-1.85,3.14)],'conflict':[0,5],'type':AmmoType.DOMESTIC_ELEVATED},
+    # {'id':49, 'checkpoint':[(MAP_LENGTH-2.85,MAP_WIDTH-1.80,3.14)],'conflict':[0,5],'type':AmmoType.DOMESTIC_ELEVATED},
+    # {'id':50, 'checkpoint':[(MAP_LENGTH-2.85,MAP_WIDTH-2.55,3.14)],'conflict':[4,5],'type':AmmoType.DOMESTIC_ELEVATED},
+    # {'id':51, 'checkpoint':[(MAP_LENGTH-2.85,MAP_WIDTH-2.90,3.14)],'conflict':[0,4],'type':AmmoType.DOMESTIC_ELEVATED},
+    # {'id':52,  'checkpoint':[(MAP_LENGTH-1.70,MAP_WIDTH-4.45,-1.57)],'conflict':[0,1],'type':AmmoType.DOMESTIC_ELEVATED},
+]
+
+AmmoBoxes_BLUE = [
     # ground ----------------------------------
     {'id':2,  'checkpoint':[(1.85,4.90,0.00)],'conflict':[],'type':AmmoType.DOMESTIC_GROUND},
     {'id':3,  'checkpoint':[(2.70,4.20,-1.57)],'conflict':[],'type':AmmoType.DOMESTIC_GROUND},
@@ -80,42 +147,6 @@ AmmoBoxes = [
     {'id':23, 'checkpoint':[(4.0,3.60,3.14)],'conflict':[4,5],'type':AmmoType.DOMESTIC_ELEVATED},
     {'id':24, 'checkpoint':[(4.0,4.19,3.14)],'conflict':[0,4],'type':AmmoType.DOMESTIC_ELEVATED},
     {'id':25,  'checkpoint':[(4.0,4.45,3.14)],'conflict':[0,1],'type':AmmoType.DOMESTIC_ELEVATED},
-    # enemy ground ----------------------------------
-    # {'id':17, 'checkpoint':[(MAP_LENGTH-1.20,MAP_WIDTH-4.30,-1.57+3.14)],'conflict':[],'type':AmmoType.ENEMY_GROUND},
-    # {'id':18, 'checkpoint':[(MAP_LENGTH-2.70,MAP_WIDTH-4.20,-1.57+3.14)],'conflict':[],'type':AmmoType.ENEMY_GROUND},
-    # {'id':19, 'checkpoint':[(MAP_LENGTH-0.50,MAP_WIDTH-4.65,1.57-3.14)],'conflict':[],'type':AmmoType.ENEMY_GROUND},
-    # {'id':20, 'checkpoint':[(MAP_LENGTH-1.05,MAP_WIDTH-4.30,1.57-3.14)],'conflict':[],'type':AmmoType.ENEMY_GROUND},
-    # # enemy elevated ----------------------------------
-    # {'id':22, 'checkpoint':[(MAP_LENGTH-2.00,MAP_WIDTH-3.60,-1.57+3.14)],'conflict':[0,1],'type':AmmoType.ENEMY_ELEVATED},
-    # {'id':24, 'checkpoint':[(MAP_LENGTH-0.88,MAP_WIDTH-3.26,1.57+3.14)],'conflict':[0,0],'type':AmmoType.ENEMY_ELEVATED},
-    # {'id':25, 'checkpoint':[(MAP_LENGTH-2.80,MAP_WIDTH-2.90,0.00+3.14)],'conflict':[0,4],'type':AmmoType.ENEMY_ELEVATED},
-    # {'id':26, 'checkpoint':[(MAP_LENGTH-1.50,MAP_WIDTH-2.50,0.00)],'conflict':[4,5],'type':AmmoType.ENEMY_ELEVATED},
-    # {'id':27, 'checkpoint':[(MAP_LENGTH-1.50,MAP_WIDTH-2.00,0.00)],'conflict':[0,5],'type':AmmoType.ENEMY_ELEVATED},
-    # {'id':28, 'checkpoint':[(MAP_LENGTH-4.20,MAP_WIDTH-1.75,0+3.14)],'conflict':[0,5],'type':AmmoType.ENEMY_ELEVATED},
-    # {'id':29, 'checkpoint':[(MAP_LENGTH-4.20,MAP_WIDTH-1.20,0+3.14)],'conflict':[0,6],'type':AmmoType.ENEMY_ELEVATED},
-    # {'id':30, 'checkpoint':[(MAP_LENGTH-4.20,MAP_WIDTH-0.50,0+3.14)],'conflict':[0,0],'type':AmmoType.ENEMY_ELEVATED}
-
-        # ground ----------------------------------
-    {'id':32,  'checkpoint':[(MAP_LENGTH-1.20,MAP_WIDTH-4.30,1.57)],'conflict':[],'type':AmmoType.DOMESTIC_GROUND},
-    {'id':33,  'checkpoint':[(MAP_LENGTH-2.70,MAP_WIDTH-4.20,1.57)],'conflict':[],'type':AmmoType.DOMESTIC_GROUND},
-    {'id':34,  'checkpoint':[(MAP_LENGTH-0.50,MAP_WIDTH-4.65,-1.57)],'conflict':[],'type':AmmoType.DOMESTIC_GROUND},
-    {'id':35,  'checkpoint':[(MAP_LENGTH-1.05,MAP_WIDTH-4.30,-1.57)],'conflict':[],'type':AmmoType.DOMESTIC_GROUND},
-    # elevated ----------------------------------
-    {'id':37,  'checkpoint':[(MAP_LENGTH-1.80,MAP_WIDTH-3.50,1.57)],'conflict':[0,1],'type':AmmoType.DOMESTIC_ELEVATED},
-    {'id':39,  'checkpoint':[(MAP_LENGTH-0.85,MAP_WIDTH-1.85,1.57)],'conflict':[0,0],'type':AmmoType.DOMESTIC_ELEVATED},
-    {'id':40, 'checkpoint':[(MAP_LENGTH-1.55,MAP_WIDTH-2.90,0)],'conflict':[0,4],'type':AmmoType.DOMESTIC_ELEVATED},
-    {'id':41, 'checkpoint':[(MAP_LENGTH-1.55,MAP_WIDTH-2.55,0)],'conflict':[4,5],'type':AmmoType.DOMESTIC_ELEVATED},
-    {'id':42, 'checkpoint':[(MAP_LENGTH-1.55,MAP_WIDTH-1.80,0)],'conflict':[0,5],'type':AmmoType.DOMESTIC_ELEVATED},
-    {'id':43, 'checkpoint':[(MAP_LENGTH-2.65,MAP_WIDTH-1.85,0)],'conflict':[0,5],'type':AmmoType.DOMESTIC_ELEVATED},
-    {'id':44, 'checkpoint':[(MAP_LENGTH-2.65,MAP_WIDTH-1.2,0)],'conflict':[0,6],'type':AmmoType.DOMESTIC_ELEVATED},
-    {'id':45, 'checkpoint':[(MAP_LENGTH-2.65,MAP_WIDTH-0.80,0)],'conflict':[0,0],'type':AmmoType.DOMESTIC_ELEVATED},
-    {'id':46, 'checkpoint':[(MAP_LENGTH-4.20,MAP_WIDTH-0.65,3.14)],'conflict':[0,0],'type':AmmoType.DOMESTIC_ELEVATED},
-    {'id':47, 'checkpoint':[(MAP_LENGTH-4.20,MAP_WIDTH-1.30,3.14)],'conflict':[0,6],'type':AmmoType.DOMESTIC_ELEVATED},
-    {'id':48, 'checkpoint':[(MAP_LENGTH-4.20,MAP_WIDTH-1.85,3.14)],'conflict':[0,5],'type':AmmoType.DOMESTIC_ELEVATED},
-    {'id':49, 'checkpoint':[(MAP_LENGTH-2.85,MAP_WIDTH-1.80,3.14)],'conflict':[0,5],'type':AmmoType.DOMESTIC_ELEVATED},
-    {'id':50, 'checkpoint':[(MAP_LENGTH-2.85,MAP_WIDTH-2.55,3.14)],'conflict':[4,5],'type':AmmoType.DOMESTIC_ELEVATED},
-    {'id':51, 'checkpoint':[(MAP_LENGTH-2.85,MAP_WIDTH-2.90,3.14)],'conflict':[0,4],'type':AmmoType.DOMESTIC_ELEVATED},
-    {'id':52,  'checkpoint':[(MAP_LENGTH-1.70,MAP_WIDTH-4.45,-1.57)],'conflict':[0,1],'type':AmmoType.DOMESTIC_ELEVATED},
 ]
 
 
@@ -198,7 +229,11 @@ class GetAmmoNode(object):
             self.state = GetAmmoStatus.MOVETO
             id_found = False
             box_info = {}
-            for box in AmmoBoxes:
+            if IAM == "BLUE":
+                ablist = AmmoBoxes_BLUE
+            else:
+                ablist = AmmoBoxes_RED
+            for box in ablist:
                 if box['id'] == goal.ammobox_index:
                     box_info = box
                     id_found = True
@@ -245,7 +280,10 @@ class GetAmmoNode(object):
                     self._as.set_aborted()
                     self.state = GetAmmoStatus.IDLE
                     break
-
+                if self.goal.ammobox_index == 26:
+                    self._as.set_succeeded()
+                    self.state = GetAmmoStatus.IDLE
+                    break
 
             elif self.state == GetAmmoStatus.SERVO:
                 # print self.servo_top_reached, self.servo_base_reached
@@ -346,11 +384,21 @@ class GetAmmoNode(object):
                 if self.touch_cnt > 10:
                     self.SendCmdVel(0.,0.,0.)
                 else:
-                    self.SendCmdVel(WITHDRAW_VX,0.,0.)
+                    if goal.ammobox_index == 5:
+                        self.SendCmdVel(-WITHDRAW_VX * 6,0.,0.)
+                    elif goal.ammobox_index  == 4:
+                        self.SendCmdVel(0.,0.,0.)
+                    else:
+                        self.SendCmdVel(WITHDRAW_VX,0.,0.)
                 if self.gripper.feedback == GripperInfo.DONE:
                     rospy.logerr('GETAMMO: Gripper done.')
                     self.withdraw_cnt = 0
                     self.state = GetAmmoStatus.WITHDRAW
+                # TIMEOUT!
+                if self.touch_cnt > 200:
+                    self._as.set_aborted()
+                    self.state = GetAmmoStatus.IDLE
+                    break
 
             elif self.state == GetAmmoStatus.WITHDRAW:
                 self.SendCmdVel(WITHDRAW_VX,0.,0.)
@@ -370,7 +418,7 @@ class GetAmmoNode(object):
         if self.state == GetAmmoStatus.SERVO:
             theta = np.deg2rad(np.linspace(-SERVO_AOV/2,SERVO_AOV/2,num=SERVO_AOV+1))
             dist = np.array(data.ranges[179-SERVO_AOV/2:179+SERVO_AOV/2+1])
-            range_cut_index = list(np.where(np.abs(dist - 0.5)>0.2)[0])
+            range_cut_index = list(np.where(np.abs(dist - 0.5)>0.25)[0])
             theta_cut = np.delete(theta, range_cut_index)
             dist_cut = np.delete(dist, range_cut_index)
             if theta_cut.size == 0:
